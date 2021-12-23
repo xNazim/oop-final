@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -25,10 +24,10 @@ public class Controller implements Initializable {
     private Button btn_Timetable;
 
     @FXML
-    private Button btnSettings;
+    private Button btnDelete;
 
     @FXML
-    private Button btnUpdate;
+    private Button btnAdd;
 
     @FXML
     private Button btnClasses;
@@ -42,8 +41,8 @@ public class Controller implements Initializable {
             loadStage("/home/fxml/Students.fxml");
         } else if (mouseEvent.getSource() == btn_Timetable) {
             loadStage("/home/fxml/Timetable.fxml");
-        } else if (mouseEvent.getSource() == btnUpdate) {
-            loadStage("/home/fxml/Update.fxml");
+        } else if (mouseEvent.getSource() == btnAdd) {
+            loadStage("/home/fxml/Add.fxml");
         }
     }
 
