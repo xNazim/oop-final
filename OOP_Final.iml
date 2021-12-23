@@ -10,5 +10,14 @@
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="fontawesome" level="project" />
     <orderEntry type="library" name="calendarfx" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/jdbc/postgresql-42.3.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
