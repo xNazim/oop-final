@@ -7,13 +7,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="fontawesome" level="project" />
     <orderEntry type="library" exported="" name="calendarfx" level="project" />
+    <orderEntry type="library" exported="" name="fontawesome" level="project" />
     <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../postgresql-42.3.1.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/jdbc/postgresql-42.3.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

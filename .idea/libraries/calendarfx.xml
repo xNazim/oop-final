@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="calendarfx">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../calendarfx" />
+      <root url="file://$USER_HOME$/Downloads/calendarfx" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/../calendarfx" />
+      <root url="file://$USER_HOME$/Downloads/calendarfx" />
     </SOURCES>
-    <jarDirectory url="file://$PROJECT_DIR$/../calendarfx" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/../calendarfx" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$USER_HOME$/Downloads/calendarfx" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/Downloads/calendarfx" recursive="false" type="SOURCES" />
   </library>
 </component>

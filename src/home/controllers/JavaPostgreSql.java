@@ -8,7 +8,7 @@ public class JavaPostgreSql {
     public static Connection getConnection() throws SQLException {
         Connection connection = DriverManager.getConnection( "jdbc:postgresql://localhost:5432/students",
                 "postgres",
-                "1234");
+                "spectre");
 
         return connection;
 

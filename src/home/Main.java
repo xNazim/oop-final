@@ -13,12 +13,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("fxml/home.fxml"));
         primaryStage.setTitle("AlaToo SMSys");
-        //primaryStage.getIcons().add(new Image("/home/icons/icon.png"));
+        primaryStage.getIcons().add(new Image("/home/icons/logoiau.png"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
-    //you can download the glyph browser - link provided.
     public static void main(String[] args) {
         launch(args);
     }
