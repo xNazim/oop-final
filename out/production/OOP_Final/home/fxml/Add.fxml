@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -10,24 +12,19 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controllers.AddController">
    <children>
       <Label prefHeight="400.0" prefWidth="600.0" />
-      <Label layoutX="182.0" layoutY="54.0" prefHeight="38.0" prefWidth="236.0" text="ADD STUDENTS">
-         <font>
-            <Font name="Arial Bold" size="29.0" />
-         </font>
-      </Label>
-      <Pane layoutX="86.0" layoutY="125.0" prefHeight="174.0" prefWidth="428.0" style="-fx-background-color: cyan;">
+      <Pane layoutX="90.0" layoutY="125.0" prefHeight="174.0" prefWidth="428.0" style="-fx-background-color: ed3d1a;">
          <children>
-            <Label layoutX="33.0" layoutY="26.0" prefHeight="38.0" prefWidth="104.0" text="Student Id">
+            <Label layoutX="33.0" layoutY="26.0" prefHeight="38.0" prefWidth="104.0" text="Student Id" textFill="#f5f0f0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="33.0" layoutY="73.0" prefHeight="17.0" prefWidth="60.0" text="Name">
+            <Label layoutX="33.0" layoutY="73.0" prefHeight="17.0" prefWidth="60.0" text="Name" textFill="#fffbfb">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="33.0" layoutY="118.0" text="Surname">
+            <Label layoutX="33.0" layoutY="118.0" text="Surname" textFill="#fcfafa">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -37,6 +34,23 @@
             <TextField fx:id="txtsname" layoutX="214.0" layoutY="118.0" prefHeight="30.0" prefWidth="169.0" promptText="Enter the Surname" />
          </children>
       </Pane>
-      <Button fx:id="btnadd" layoutX="421.0" layoutY="330.0" mnemonicParsing="false" onAction="#AddRecord" prefHeight="47.0" prefWidth="115.0" text="ADD" />
+      <Button fx:id="btnadd" layoutX="421.0" layoutY="330.0" mnemonicParsing="false" onAction="#AddRecord" prefHeight="47.0" prefWidth="115.0" style="-fx-background-color: #0b3780;" text="ADD" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Pane prefHeight="103.0" prefWidth="600.0" style="-fx-background-color: #0b3780;">
+         <children>
+            <Label layoutX="182.0" layoutY="33.0" prefHeight="38.0" prefWidth="236.0" text="ADD STUDENTS" textFill="#fcfafa">
+               <font>
+                  <Font name="Arial Bold" size="29.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="72.0" fitWidth="97.0" layoutX="87.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/logoiau.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
