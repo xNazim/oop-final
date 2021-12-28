@@ -55,9 +55,11 @@ public class DashboardController implements Initializable {
     private void loadChart()
     {
 
-        PieChart.Data slice1 = new PieChart.Data("Classes", 213);
-        PieChart.Data slice2 = new PieChart.Data("Attendance"  , 67);
-        PieChart.Data slice3 = new PieChart.Data("Teachers" , 36);
+        PieChart.Data slice1 = new PieChart.Data("Total students", 100);
+        PieChart.Data slice2 = new PieChart.Data("Total Hours"  , 200);
+        PieChart.Data slice3 = new PieChart.Data("Total Lessons" , 8);
+
+
 
         pieChart.getData().add(slice1);
         pieChart.getData().add(slice2);

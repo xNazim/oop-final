@@ -34,7 +34,7 @@
             <TextField fx:id="txtsname" layoutX="214.0" layoutY="118.0" prefHeight="30.0" prefWidth="169.0" promptText="Enter the Surname" />
          </children>
       </Pane>
-      <Button fx:id="btnadd" layoutX="421.0" layoutY="330.0" mnemonicParsing="false" onAction="#AddRecord" prefHeight="47.0" prefWidth="115.0" style="-fx-background-color: #0b3780;" text="ADD" textFill="#f8f7f7">
+      <Button fx:id="btnadd" layoutX="421.0" layoutY="330.0" mnemonicParsing="false" onAction="#AddRecord" prefHeight="47.0" prefWidth="115.0" stylesheets="@../css/add.css" text="ADD" textFill="#f5f5f5">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>

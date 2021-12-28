@@ -104,7 +104,6 @@ public class DeleteController implements Initializable {
         studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-
         tbData.setItems(objlist);
 
 
