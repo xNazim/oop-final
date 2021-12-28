@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import javax.swing.*;
 import java.net.URL;
@@ -23,8 +24,14 @@ public class DeleteController implements Initializable {
 
     @FXML
     private Button btnDel;
-    Connection con;
-    PreparedStatement pst;
+
+    int index = -1;
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+
+    @FXML
+    private TableColumn<StudentsModel, String> eMail;
 
     @FXML
     private TableColumn<StudentsModel, String> firstName;
@@ -39,7 +46,33 @@ public class DeleteController implements Initializable {
     private TableView<StudentsModel> tbData;
 
     @FXML
+    private TextField txtemail;
+
+    @FXML
     private TextField txtid;
+
+    @FXML
+    private TextField txtname;
+
+    @FXML
+    private TextField txtsname;
+
+
+
+
+
+    @FXML
+    void getSelected(MouseEvent event){
+        index = tbData.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            return;
+        }
+        txtid.setText(studentId.getCellData(index));
+        txtname.setText(firstName.getCellData(index).toString());
+        txtsname.setText(lastName.getCellData(index).toString());
+        txtemail.setText(eMail.getCellData(index).toString());
+
+    }
 
     @FXML
     void DelStudent(ActionEvent event) {
@@ -56,11 +89,11 @@ public class DeleteController implements Initializable {
             pst = con.prepareStatement(sql);
             pst.setInt(1, sid);
 
-            int satus = pst.executeUpdate();
+            int status = pst.executeUpdate();
 
 
 
-            if (satus == 1)
+            if (status == 1)
             {
                 JOptionPane.showMessageDialog(null, "deleted");
 
@@ -96,7 +129,7 @@ public class DeleteController implements Initializable {
 
             ResultSet rs = con.createStatement().executeQuery("SELECT * FROM student;");
             while (rs.next()) {
-                objlist.add(new StudentsModel(rs.getInt("student_id"), rs.getString("first_name"), rs.getString("last_name") ));
+                objlist.add(new StudentsModel(rs.getInt("student_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("email") ));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -104,6 +137,7 @@ public class DeleteController implements Initializable {
         studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
         tbData.setItems(objlist);
 
 

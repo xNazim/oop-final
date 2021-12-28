@@ -9,11 +9,13 @@ public class StudentsModel {
     private SimpleIntegerProperty studentId;
     private SimpleStringProperty firstName;
     private SimpleStringProperty lastName;
+    private SimpleStringProperty eMail;
 
-    public StudentsModel(Integer studentId, String firstName, String lastName) {
+    public StudentsModel(Integer studentId, String firstName, String lastName, String eMail) {
         this.studentId = new SimpleIntegerProperty(studentId);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
+        this.eMail = new SimpleStringProperty(eMail);
     }
 
     public int getStudentId() {
@@ -38,5 +40,13 @@ public class StudentsModel {
 
     public void setLastName(String lastName) {
         this.lastName = new SimpleStringProperty(lastName);
+    }
+
+    public String getEmail() {
+        return eMail.get();
+    }
+
+    public void setEmail(String email) {
+        this.eMail = new SimpleStringProperty(email);
     }
 }

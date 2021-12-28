@@ -26,6 +26,9 @@ public class AddController implements Initializable {
     @FXML
     private TextField txtsname;
 
+    @FXML
+    private TextField txtemail;
+
 
     @FXML
     private Button btnadd;
@@ -40,15 +43,18 @@ public class AddController implements Initializable {
         Integer sid = Integer.valueOf(txtid.getText());
         String sname = txtname.getText();
         String lname = txtsname.getText();
+        String eemail = txtemail.getText();
 
 
         try {
             Connection con = JavaPostgreSql.getConnection();
 
-            pst = con.prepareStatement("INSERT INTO student(student_id, first_name, last_name) VALUES (?, ?, ?)");
+            pst = con.prepareStatement("INSERT INTO student(student_id, first_name, last_name, email) VALUES (?, ?, ?, ?)");
             pst.setInt(1, sid);
             pst.setString(2, sname);
             pst.setString(3, lname);
+            pst.setString(4, eemail);
+
             int satus = pst.executeUpdate();
 
             if (satus == 1)
@@ -61,7 +67,7 @@ public class AddController implements Initializable {
                 txtid.requestFocus();
             }
             else {
-                JOptionPane.showMessageDialog(null, "Record Failed");
+                JOptionPane.showMessageDialog(null, "Adding Failed");
 
             }
 

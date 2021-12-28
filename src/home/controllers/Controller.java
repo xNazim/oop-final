@@ -32,9 +32,6 @@ public class Controller implements Initializable {
         private Button btnClasses;
 
         @FXML
-        private Button btnDashboard;
-
-        @FXML
         private Button btnDelete;
 
         @FXML
@@ -42,6 +39,9 @@ public class Controller implements Initializable {
 
         @FXML
         private Button btn_Timetable;
+
+        @FXML
+        private TableColumn<StudentsModel, String> eMail;
 
         @FXML
         private TableColumn<StudentsModel, String> firstName;
@@ -59,10 +59,10 @@ public class Controller implements Initializable {
 
 
 
-    //my bad - the freaking mouse event
+
     @FXML
     private void handleButtonClicks(javafx.event.ActionEvent mouseEvent) {
-        if (mouseEvent.getSource() == btnDashboard) {
+        if (mouseEvent.getSource() == btnClasses) {
             loadStage("/home/fxml/Dashboard.fxml");
         } else if (mouseEvent.getSource() == btnStudents) {
             loadStage("/home/fxml/Students.fxml");
@@ -86,7 +86,7 @@ public class Controller implements Initializable {
 
             ResultSet rs = con.createStatement().executeQuery("SELECT * FROM student;");
             while (rs.next()) {
-                objlist.add(new StudentsModel(rs.getInt("student_id"), rs.getString("first_name"), rs.getString("last_name") ));
+                objlist.add(new StudentsModel(rs.getInt("student_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("email") ));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -103,6 +103,7 @@ public class Controller implements Initializable {
         studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
         tbData.setItems(objlist);
     }
 
