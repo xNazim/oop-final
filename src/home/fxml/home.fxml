@@ -68,7 +68,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
                 </Button>
-                <Button fx:id="btnSettings" contentDisplay="TOP" mnemonicParsing="false" prefHeight="181.0" prefWidth="242.0" stylesheets="@../css/style.css" text="DELETE STUDENT" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="btnDelete" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@../css/style.css" text="DELETE STUDENT" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <graphic>
                         <FontAwesomeIconView fill="#ed3d1a" glyphName="USER_TIMES" size="60" />
                     </graphic>

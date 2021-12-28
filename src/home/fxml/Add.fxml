@@ -15,7 +15,7 @@
             <Font name="Arial Bold" size="29.0" />
          </font>
       </Label>
-      <Pane layoutX="86.0" layoutY="125.0" prefHeight="174.0" prefWidth="428.0" style="-fx-background-color: cyan;">
+      <Pane layoutX="86.0" layoutY="125.0" prefHeight="174.0" prefWidth="428.0" style="-fx-background-color: #e27031;">
          <children>
             <Label layoutX="33.0" layoutY="26.0" prefHeight="38.0" prefWidth="104.0" text="Student Id">
                <font>

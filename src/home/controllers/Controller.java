@@ -43,6 +43,8 @@ public class Controller implements Initializable {
             loadStage("/home/fxml/Timetable.fxml");
         } else if (mouseEvent.getSource() == btnAdd) {
             loadStage("/home/fxml/Add.fxml");
+        } else if (mouseEvent.getSource() == btnDelete) {
+            loadStage("/home/fxml/Delete.fxml");
         }
     }
 
