@@ -25,11 +25,6 @@ public class DeleteController implements Initializable {
     @FXML
     private Button btnDel;
 
-    int index = -1;
-    Connection con = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-
     @FXML
     private TableColumn<StudentsModel, String> eMail;
 
@@ -40,44 +35,34 @@ public class DeleteController implements Initializable {
     private TableColumn<StudentsModel, String> lastName;
 
     @FXML
-    private TableColumn<StudentsModel, String> studentId;
+    private TableColumn<StudentsModel, Integer> studentId;
 
     @FXML
     private TableView<StudentsModel> tbData;
 
     @FXML
-    private TextField txtemail;
+    private TextField txt_email;
 
     @FXML
-    private TextField txtid;
+    private TextField txt_id;
 
     @FXML
-    private TextField txtname;
+    private TextField txt_name;
 
     @FXML
-    private TextField txtsname;
+    private TextField txt_sname;
 
+    ObservableList<StudentsModel> objlist;
 
-
-
-
-    @FXML
-    void getSelected(MouseEvent event){
-        index = tbData.getSelectionModel().getSelectedIndex();
-        if (index <= -1) {
-            return;
-        }
-        txtid.setText(studentId.getCellData(index));
-        txtname.setText(firstName.getCellData(index).toString());
-        txtsname.setText(lastName.getCellData(index).toString());
-        txtemail.setText(eMail.getCellData(index).toString());
-
-    }
+    int index = -1;
+    Connection connection = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
 
     @FXML
     void DelStudent(ActionEvent event) {
 
-        Integer sid = Integer.valueOf(txtid.getText());
+        Integer sid = Integer.valueOf(txt_id.getText());
 
 
 
@@ -97,12 +82,9 @@ public class DeleteController implements Initializable {
             {
                 JOptionPane.showMessageDialog(null, "deleted");
 
-                UpdateTable();
 
 
-
-
-                txtid.setText("");
+                txt_id.setText("");
             }
             else {
                 JOptionPane.showMessageDialog(null, "Deletion Failed");
@@ -116,39 +98,40 @@ public class DeleteController implements Initializable {
         }
 
 
-
-
-
-
     }
-    ObservableList<StudentsModel> objlist = FXCollections.observableArrayList();
-    public void UpdateTable(){
 
-        try {
-            Connection con = JavaPostgreSql.getConnection();
 
-            ResultSet rs = con.createStatement().executeQuery("SELECT * FROM student;");
-            while (rs.next()) {
-                objlist.add(new StudentsModel(rs.getInt("student_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("email") ));
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+    @FXML
+    void getSelected(MouseEvent event){
+        index = tbData.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            return;
         }
-        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
-        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        tbData.setItems(objlist);
 
+
+        txt_id.setText(studentId.getCellData(index).toString());
+        txt_name.setText(firstName.getCellData(index).toString());
+        txt_sname.setText(lastName.getCellData(index).toString());
+        txt_email.setText(eMail.getCellData(index).toString());
 
     }
+
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        UpdateTable();
+        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        objlist = JavaPostgreSql.getDatastudents();
+        tbData.setItems(objlist);
+
+
+
 
 
 

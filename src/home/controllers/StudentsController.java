@@ -31,7 +31,7 @@ public class StudentsController implements Initializable {
     public TableColumn<StudentsModel, String> eMail;
 
 
-    ObservableList<StudentsModel> objlist = FXCollections.observableArrayList();
+    ObservableList<StudentsModel> listM = FXCollections.observableArrayList();
 
 
     @Override
@@ -42,7 +42,7 @@ public class StudentsController implements Initializable {
 
             ResultSet rs = con.createStatement().executeQuery("SELECT * FROM student;");
             while (rs.next()) {
-                objlist.add(new StudentsModel(rs.getInt("student_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("email") ));
+                listM.add(new StudentsModel(rs.getInt("student_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("email") ));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -52,7 +52,7 @@ public class StudentsController implements Initializable {
         lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
 
-        tbData.setItems(objlist);
+        tbData.setItems(listM);
     }
 
 

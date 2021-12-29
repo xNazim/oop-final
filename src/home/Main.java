@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("fxml/home.fxml"));
-        primaryStage.setTitle("AlaToo SMSys");
+        primaryStage.setTitle("Student Management System");
         primaryStage.getIcons().add(new Image("/home/icons/logoiau.png"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
