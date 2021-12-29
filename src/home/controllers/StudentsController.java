@@ -1,5 +1,7 @@
 package home.controllers;
 
+import home.JavaPostgreSql;
+import home.models.StudentsModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

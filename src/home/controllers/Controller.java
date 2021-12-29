@@ -1,5 +1,7 @@
 package home.controllers;
 
+import home.JavaPostgreSql;
+import home.models.StudentsModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -63,7 +65,7 @@ public class Controller implements Initializable {
     @FXML
     private void handleButtonClicks(javafx.event.ActionEvent mouseEvent) {
         if (mouseEvent.getSource() == btnClasses) {
-            loadStage("/home/fxml/Dashboard.fxml");
+            loadStage("/home/fxml/Classes.fxml");
         } else if (mouseEvent.getSource() == btnStudents) {
             loadStage("/home/fxml/Students.fxml");
         } else if (mouseEvent.getSource() == btn_Timetable) {
@@ -114,7 +116,7 @@ public class Controller implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.getIcons().add(new Image("/home/icons/logoiau.png"));
+            stage.getIcons().add(new Image("/home/images/logoiau.png"));
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (IOException e) {

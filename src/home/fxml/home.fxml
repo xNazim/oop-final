@@ -21,7 +21,7 @@
             <children>
             <ImageView fitHeight="127.0" fitWidth="138.0" layoutX="42.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../icons/logoiau.png" />
+                  <Image url="@../images/logoiau.png" />
                </image>
             </ImageView>
             <GridPane layoutX="4.0" layoutY="177.0" prefHeight="368.0" prefWidth="210.0" vgap="3.0">
@@ -52,7 +52,7 @@
                               <FontAwesomeIconView fill="#ed3d1a" glyphName="USER_PLUS" nodeOrientation="LEFT_TO_RIGHT" size="40" wrappingWidth="185.1428565979004" x="5.0" y="5.0" />
                      </graphic>
                       </Button>
-                      <Button fx:id="btnClasses" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="203.0" stylesheets="@../css/style.css" text="Classes" textAlignment="CENTER">
+                      <Button fx:id="btnClasses" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="100.0" prefWidth="203.0" stylesheets="@../css/style.css" text="Classes" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri Italic" size="15.0" />
                      </font>
@@ -145,7 +145,7 @@
                   </Label>
                   <ImageView fitHeight="58.0" fitWidth="406.0" layoutX="18.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons/time.png" />
+                        <Image url="@../images/time.png" />
                      </image>
                   </ImageView>
                </children>
@@ -164,7 +164,7 @@
                   </Label>
                   <ImageView fitHeight="88.0" fitWidth="140.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons/book.png" />
+                        <Image url="@../images/book.png" />
                      </image>
                   </ImageView>
                </children>

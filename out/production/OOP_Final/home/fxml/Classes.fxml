@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane focusTraversable="true" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controllers.Classes">
+   <children>
+      <TableView fx:id="tbClasses" layoutX="122.0" layoutY="107.0" prefHeight="251.0" prefWidth="443.0" stylesheets="@../css/class.css" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="107.0">
+        <columns>
+          <TableColumn fx:id="class_Id" prefWidth="88.0" text="Class ID" />
+          <TableColumn fx:id="class_Name" prefWidth="104.0" text="Class Name" />
+            <TableColumn fx:id="Lecturer" prefWidth="110.0" text="Lecturer" />
+            <TableColumn fx:id="Lesson" prefWidth="114.0" text="Lesson P/W" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TextField layoutX="122.0" layoutY="78.0" promptText="Search" style="-fx-background-color: #D6E5FA;" />
+      <Pane prefHeight="72.0" prefWidth="600.0" style="-fx-background-color: #0b3780;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane layoutX="-1.0" layoutY="72.0" prefHeight="328.0" prefWidth="92.0" style="-fx-background-color: #0b3780;" AnchorPane.leftAnchor="0.0" />
+   </children>
+</AnchorPane>

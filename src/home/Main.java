@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("fxml/home.fxml"));
         primaryStage.setTitle("Student Management System");
-        primaryStage.getIcons().add(new Image("/home/icons/logoiau.png"));
+        primaryStage.getIcons().add(new Image("/home/images/logoiau.png"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

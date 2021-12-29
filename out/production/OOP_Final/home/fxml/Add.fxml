@@ -53,7 +53,7 @@
             </Label>
             <ImageView fitHeight="78.0" fitWidth="104.0" layoutX="91.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../icons/hat.png" />
+                  <Image url="@../images/hat.png" />
                </image>
             </ImageView>
          </children>
