@@ -67,7 +67,7 @@ public class Controller implements Initializable {
         if (mouseEvent.getSource() == btnClasses) {
             loadStage("/home/fxml/Classes.fxml");
         } else if (mouseEvent.getSource() == btnStudents) {
-            loadStage("/home/fxml/Students.fxml");
+            loadStage("/home/fxml/Update.fxml");
         } else if (mouseEvent.getSource() == btn_Timetable) {
             loadStage("/home/fxml/Timetable.fxml");
         } else if (mouseEvent.getSource() == btnAdd) {

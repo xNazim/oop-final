@@ -83,6 +83,8 @@ public class DeleteController implements Initializable {
             {
                 JOptionPane.showMessageDialog(null, "deleted");
 
+                UpdateTable();
+
 
 
                 txt_id.setText("");
@@ -104,7 +106,7 @@ public class DeleteController implements Initializable {
 
 
     @FXML
-    void getSelected(MouseEvent event){
+    public void getSelected(MouseEvent event){
         index = tbData.getSelectionModel().getSelectedIndex();
         if (index <= -1) {
             return;
@@ -119,10 +121,7 @@ public class DeleteController implements Initializable {
     }
 
 
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public  void UpdateTable(){
 
         studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
@@ -132,11 +131,15 @@ public class DeleteController implements Initializable {
         tbData.setItems(objlist);
 
 
+    }
 
 
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        UpdateTable();
     }
 
 
