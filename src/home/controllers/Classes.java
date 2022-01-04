@@ -26,7 +26,7 @@ public class Classes implements Initializable {
     private TableColumn<ClassesModel, Integer> Lesson;
 
     @FXML
-    private TableColumn<ClassesModel, Integer> class_Id;
+    private TableColumn<ClassesModel, String> class_Id;
 
     @FXML
     private TableColumn<ClassesModel, String> class_Name;
@@ -44,7 +44,7 @@ public class Classes implements Initializable {
 
             ResultSet rs = con.createStatement().executeQuery("SELECT * FROM classes;");
             while (rs.next()){
-                objlist.add(new ClassesModel(rs.getInt("class_id"), rs.getString("c_name"), rs.getString("lecturer"), rs.getInt("lesson_p_week")));
+                objlist.add(new ClassesModel(rs.getString("class_id"), rs.getString("c_name"), rs.getString("lecturer"), rs.getInt("lesson_p_week")));
             }
         } catch (SQLException throwables){
             throwables.printStackTrace();

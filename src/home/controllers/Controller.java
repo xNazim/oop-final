@@ -4,6 +4,9 @@ import home.JavaPostgreSql;
 import home.models.StudentsModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -57,8 +61,11 @@ public class Controller implements Initializable {
         @FXML
         private TableView<StudentsModel> tbData;
 
+        @FXML
+        private Button refBtn;
 
-
+        @FXML
+        private TextField searchHome;
 
 
 
@@ -77,37 +84,15 @@ public class Controller implements Initializable {
         }
     }
 
-    ObservableList<StudentsModel> objlist = FXCollections.observableArrayList();
 
+    @FXML
+    void refreshList(ActionEvent event) {
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+        UpdateTable();
 
-        try {
-            Connection con = JavaPostgreSql.getConnection();
-
-            ResultSet rs = con.createStatement().executeQuery("SELECT * FROM student;");
-            while (rs.next()) {
-                objlist.add(new StudentsModel(rs.getInt("student_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("email") ));
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-
-        loadStudents();
     }
 
 
-
-    private void loadStudents()
-    {
-        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
-        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        tbData.setItems(objlist);
-    }
 
 
 
@@ -122,6 +107,77 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public  void UpdateTable(){
+
+        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        objlist = JavaPostgreSql.getDatastudents();
+        tbData.setItems(objlist);
+
+
+    }
+
+    public void SearchUser(){
+        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+
+        dataList = JavaPostgreSql.getDatastudents();
+        tbData.setItems(dataList);
+        FilteredList<StudentsModel> filteredData = new FilteredList<>(dataList, b -> true);
+        searchHome.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            filteredData.setPredicate(studentsModel -> {
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+                String loweCaseFilter = newValue.toLowerCase();
+
+                if (studentsModel.getFirstName().toLowerCase().indexOf(loweCaseFilter) != -1){
+                    return true;
+                } else if (studentsModel.getLastName().toLowerCase().indexOf(loweCaseFilter) != -1){
+                    return  true;
+                } else  if (String.valueOf(studentsModel.getEmail()).indexOf(loweCaseFilter) != -1)
+                    return true;
+
+                else
+                    return false;
+            });
+        });
+        SortedList<StudentsModel> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tbData.comparatorProperty());
+        tbData.setItems(sortedData);
+    }
+
+
+
+
+
+    ObservableList<StudentsModel> objlist;
+    ObservableList<StudentsModel> dataList;
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        UpdateTable();
+        loadStudents();
+        SearchUser();
+    }
+
+
+
+    private void loadStudents()
+    {
+        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        tbData.setItems(objlist);
     }
 
 }

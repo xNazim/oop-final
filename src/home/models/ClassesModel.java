@@ -4,16 +4,16 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class ClassesModel {
-    private SimpleIntegerProperty classId;
+    private SimpleStringProperty classId;
     private SimpleStringProperty c_Name;
     private SimpleStringProperty Lecturer;
     private SimpleIntegerProperty lesson_p_Week;
 
-    public int getClassId() {
+    public String getClassId() {
         return classId.get();
     }
 
-    public void setClassId(int classId) {
+    public void setClassId(String classId) {
         this.classId.set(classId);
     }
 
@@ -29,7 +29,7 @@ public class ClassesModel {
         this.lesson_p_Week.set(lesson_p_Week);
     }
 
-    public SimpleIntegerProperty classIdProperty() {
+    public SimpleStringProperty classIdProperty() {
         return classId;
     }
 
@@ -57,8 +57,8 @@ public class ClassesModel {
         return lesson_p_Week;
     }
 
-    public ClassesModel(int classId, String c_Name, String Lecturer, int lesson_p_Week) {
-        this.classId = new SimpleIntegerProperty(classId);
+    public ClassesModel(String classId, String c_Name, String Lecturer, int lesson_p_Week) {
+        this.classId = new SimpleStringProperty(classId);
         this.c_Name = new SimpleStringProperty(c_Name);
         this.Lecturer = new SimpleStringProperty(Lecturer);
         this.lesson_p_Week = new SimpleIntegerProperty(lesson_p_Week);

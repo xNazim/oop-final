@@ -3,6 +3,8 @@ package home.controllers;
 import home.JavaPostgreSql;
 import home.models.StudentsModel;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -46,7 +48,11 @@ public class UpdateController implements Initializable {
     @FXML
     private TextField txt_sname;
 
+    @FXML
+    private TextField searchUp;
+
     ObservableList<StudentsModel> listM;
+    ObservableList<StudentsModel> dataList;
 
     @FXML
     public void getSelected(MouseEvent event){
@@ -84,6 +90,7 @@ public class UpdateController implements Initializable {
             pst.execute();
             JOptionPane.showMessageDialog(null, "Edited");
             UpdateTable();
+            SearchUser();
         }   catch (SQLException throwables) {
             throwables.printStackTrace();
             JOptionPane.showMessageDialog(null, throwables);
@@ -107,11 +114,45 @@ public class UpdateController implements Initializable {
 
     }
 
+    public void SearchUser(){
+        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+
+        dataList = JavaPostgreSql.getDatastudents();
+        tbData.setItems(dataList);
+        FilteredList<StudentsModel> filteredData = new FilteredList<>(dataList, b -> true);
+        searchUp.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            filteredData.setPredicate(studentsModel -> {
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+                String loweCaseFilter = newValue.toLowerCase();
+
+                if (studentsModel.getFirstName().toLowerCase().indexOf(loweCaseFilter) != -1){
+                    return true;
+                } else if (studentsModel.getLastName().toLowerCase().indexOf(loweCaseFilter) != -1){
+                    return  true;
+                } else  if (String.valueOf(studentsModel.getEmail()).indexOf(loweCaseFilter) != -1)
+                    return true;
+
+                else
+                    return false;
+            });
+        });
+        SortedList<StudentsModel> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tbData.comparatorProperty());
+        tbData.setItems(sortedData);
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         UpdateTable();
+        SearchUser();
 
 
     }

@@ -41,7 +41,7 @@
         </TableView>
         <Pane layoutX="20.0" layoutY="159.0" prefHeight="33.0" prefWidth="322.0">
             <children>
-                <TextField prefHeight="25.0" prefWidth="322.0" style="-fx-border-color: #2D75E8;" />
+                <TextField fx:id="searchUp" prefHeight="25.0" prefWidth="322.0" promptText="Search" style="-fx-border-color: #2D75E8;" />
                 <FontAwesomeIconView fill="#2d75e8" glyphName="SEARCH" layoutX="302.0" layoutY="18.0" />
             </children>
         </Pane>

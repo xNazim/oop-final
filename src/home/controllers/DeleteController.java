@@ -3,6 +3,8 @@ package home.controllers;
 import home.JavaPostgreSql;
 import home.models.StudentsModel;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,6 +27,9 @@ public class DeleteController implements Initializable {
 
     @FXML
     private Button btnDel;
+
+    @FXML
+    private TextField filterField;
 
     @FXML
     private TableColumn<StudentsModel, String> eMail;
@@ -54,6 +59,7 @@ public class DeleteController implements Initializable {
     private TextField txt_sname;
 
     ObservableList<StudentsModel> objlist;
+    ObservableList<StudentsModel> dataList;
 
     int index = -1;
     Connection connection = null;
@@ -84,6 +90,7 @@ public class DeleteController implements Initializable {
                 JOptionPane.showMessageDialog(null, "deleted");
 
                 UpdateTable();
+                SearchUser();
 
 
 
@@ -133,6 +140,38 @@ public class DeleteController implements Initializable {
 
     }
 
+    public void SearchUser(){
+        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        eMail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+
+        dataList = JavaPostgreSql.getDatastudents();
+        tbData.setItems(dataList);
+        FilteredList<StudentsModel> filteredData = new FilteredList<>(dataList, b -> true);
+        filterField.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            filteredData.setPredicate(studentsModel -> {
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+                String loweCaseFilter = newValue.toLowerCase();
+
+                if (studentsModel.getFirstName().toLowerCase().indexOf(loweCaseFilter) != -1){
+                    return true;
+                } else if (studentsModel.getLastName().toLowerCase().indexOf(loweCaseFilter) != -1){
+                    return  true;
+                } else  if (String.valueOf(studentsModel.getEmail()).indexOf(loweCaseFilter) != -1)
+                    return true;
+
+                else
+                    return false;
+            });
+        });
+        SortedList<StudentsModel>sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tbData.comparatorProperty());
+        tbData.setItems(sortedData);
+    }
+
 
 
 
@@ -140,6 +179,7 @@ public class DeleteController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         UpdateTable();
+        SearchUser();
     }
 
 

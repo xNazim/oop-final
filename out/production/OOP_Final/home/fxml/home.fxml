@@ -6,6 +6,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -68,20 +69,21 @@
                               <FontAwesomeIconView fill="#ed3d1a" glyphName="CALENDAR" nodeOrientation="LEFT_TO_RIGHT" size="40" wrappingWidth="185.0" />
                      </graphic>
                       </Button>
-                      <Button fx:id="btnStudents" alignment="BASELINE_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleButtonClicks" prefHeight="88.0" prefWidth="209.0" stylesheets="@../css/style.css" text="       Student List" GridPane.rowIndex="1">
+                      <Button fx:id="btnStudents" alignment="BASELINE_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleButtonClicks" prefHeight="88.0" prefWidth="209.0" stylesheets="@../css/style.css" text="       Update Student" GridPane.rowIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font>
                      <graphic>
-                              <FontAwesomeIconView fill="#ed3d1a" glyphName="ADDRESS_BOOK" size="40" wrappingWidth="188.8571434020996" />
+                              <FontAwesomeIconView fill="#ed3d1a" glyphName="EDIT" size="40" wrappingWidth="188.8571434020996" />
                      </graphic>
                       </Button>
                </children>
             </GridPane>
+            <FontAwesomeIconView fill="#fffefe" glyphName="COG" layoutX="182.0" layoutY="574.0" size="25" />
             </children>
         </Pane>
       <Pane layoutX="218.0" layoutY="49.0" prefHeight="99.0" prefWidth="725.0" style="-fx-background-color: #0b3780;" AnchorPane.leftAnchor="218.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0" />
-      <SplitPane layoutX="298.0" layoutY="309.0" prefHeight="287.0" prefWidth="570.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="309.0">
+      <SplitPane layoutX="265.0" layoutY="317.0" prefHeight="287.0" prefWidth="570.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="317.0">
          <items>
             <GridPane prefHeight="285.0" prefWidth="641.0">
                <columnConstraints>
@@ -157,7 +159,7 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="143.0" layoutY="16.0" text="8" textFill="WHITE">
+                  <Label layoutX="143.0" layoutY="16.0" text="7" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="40.0" />
                      </font>
@@ -176,5 +178,13 @@
                   <Font name="Georgia" size="28.0" />
               </font>
           </Label>
+      <Button fx:id="refBtn" layoutX="852.0" layoutY="433.0" mnemonicParsing="false" onAction="#refreshList" prefHeight="39.0" prefWidth="69.0" text="Refresh" AnchorPane.rightAnchor="22.0" />
+      <ImageView fitHeight="71.0" fitWidth="56.0" layoutX="859.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="28.0">
+         <image>
+            <Image url="@../images/refresh.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="searchHome" layoutX="637.0" layoutY="284.0" prefHeight="25.0" prefWidth="198.0" promptText="Search Student" />
+      <FontAwesomeIconView fill="#2d75e8" glyphName="SEARCH" layoutX="817.0" layoutY="300.0" />
     </children>
 </AnchorPane>

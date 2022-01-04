@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane focusTraversable="true" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controllers.Classes">
    <children>
-      <TableView fx:id="tbClasses" layoutX="122.0" layoutY="107.0" prefHeight="251.0" prefWidth="443.0" stylesheets="@../css/class.css" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="107.0">
+      <TableView fx:id="tbClasses" layoutX="79.0" layoutY="114.0" prefHeight="251.0" prefWidth="443.0" stylesheets="@../css/class.css" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="79.0" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="114.0">
         <columns>
           <TableColumn fx:id="class_Id" prefWidth="88.0" text="Class ID" />
           <TableColumn fx:id="class_Name" prefWidth="104.0" text="Class Name" />
@@ -19,8 +24,23 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TextField layoutX="122.0" layoutY="78.0" promptText="Search" style="-fx-background-color: #D6E5FA;" />
-      <Pane prefHeight="72.0" prefWidth="600.0" style="-fx-background-color: #0b3780;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Pane layoutX="-1.0" layoutY="72.0" prefHeight="328.0" prefWidth="92.0" style="-fx-background-color: #0b3780;" AnchorPane.leftAnchor="0.0" />
+      <TextField layoutX="79.0" layoutY="85.0" promptText="Search" style="-fx-background-color: #D6E5FA;" AnchorPane.leftAnchor="79.0">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <Pane prefHeight="72.0" prefWidth="600.0" style="-fx-background-color: #0b3780;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="241.0" layoutY="11.0" prefHeight="51.0" prefWidth="119.0" text="Classes" textFill="#fcf9f9">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="166.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/book.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <FontAwesomeIconView fill="#2d75e8" glyphName="SEARCH" layoutX="207.0" layoutY="101.0" />
    </children>
 </AnchorPane>

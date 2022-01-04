@@ -14,7 +14,7 @@
 -fx-border-color: #FF5959;}
 
 .table-row-cell:selected {
-    -fx-background-color: #6998AB;
+    -fx-background-color: #FE7E6D;
  }
  .table-row-cell:selected .text {
         -fx-fill : white ;
