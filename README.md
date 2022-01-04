@@ -1,4 +1,7 @@
-## Ala-Too Management System 
+## JavaFX Student Management System.
+This is a Simple Student Management System Developed for Educational Purpose using JavaFX, Postgresql.
+
+
 ### Team members: Zhakyp Zhoomart uulu, Nazim Mukhtarbekov.
 
 ![image_2022-01-04_17-12-46](https://user-images.githubusercontent.com/73534500/148052974-c5f21fd5-fb0b-4a91-aeb1-17d79437c384.png)
