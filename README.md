@@ -2,7 +2,7 @@
 This is a Simple Student Management System Developed for Educational Purpose using JavaFX, Postgresql.
 
 
-### Function description
+## Function description
 #### (1) Five different functions are realized through the left navigation bar
 #### (2) List all student information in the database
 #### (3) Added student information: student ID, name, surname, email insertion of these four data
@@ -11,7 +11,7 @@ This is a Simple Student Management System Developed for Educational Purpose usi
 #### (6) The class function displays all class information, including class ID, class name, lecturer, and lesson P/W.
 
 
-### some screenshots
+### screenshots
 ![image_2022-01-04_17-12-46](https://user-images.githubusercontent.com/73534500/148052974-c5f21fd5-fb0b-4a91-aeb1-17d79437c384.png)
 
 ![image_2022-01-04_17-14-07](https://user-images.githubusercontent.com/73534500/148052985-8168e287-7c30-4397-9e2d-b3f2329e5803.png)
