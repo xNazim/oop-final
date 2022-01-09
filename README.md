@@ -2,6 +2,10 @@
 This is a Simple Student Management System Developed for Educational Purpose using JavaFX, Postgresql.
 
 
+### Video Review
+https://youtu.be/onM-bb6nt00
+
+
 ## Function description
 #### (1) Five different functions are realized through the left navigation bar
 #### (2) List all student information in the database
