@@ -15,8 +15,8 @@ public class JavaPostgreSql {
         try {
 
             Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/students",
-                    "postgres",
-                    "spectre");
+                    "username",
+                    "password");
 
             return connection;
             } catch (Exception e){
